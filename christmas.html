@@ -17,8 +17,8 @@
             font-family: Arial, sans-serif;
         }
         .box {
-            width: 150px;
-            height: 150px;
+            inline-size: 150px;
+            block-size: 150px;
             background-color: #ff6347;
             display: flex;
             justify-content: center;
@@ -34,8 +34,8 @@
 
         .image-container {
             position: absolute;
-            top: -200px;
-            left: 50%;
+            inset-block-start: -200px;
+            inset-inline-start: 50%;
             transform: translate(-50%, 0) scale(0.5);
             opacity: 0;
             transition: transform 1s ease, opacity 1s ease, top 1s ease;
@@ -44,10 +44,10 @@
         }
 
         .image-container img {
-            max-width: 80vw;
-            max-height: 50vh;
+            max-inline-size: 80vw;
+            max-block-size: 50vh;
             border-radius: 15px;
-            margin-bottom: 10px;
+            margin-block-end: 10px;
         }
 
         .image-container p {
@@ -56,16 +56,16 @@
         }
 
         .image-container.show {
-            top: 50%;
+            inset-block-start: 50%;
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
             z-index: 3;
         }
 
-        @media (max-width: 600px) {
+        @media (max-inline-size: 600px) {
             .box {
-                width: 120px;
-                height: 120px;
+                inline-size: 120px;
+                block-size: 120px;
                 font-size: 20px;
             }
 
@@ -76,11 +76,11 @@
     </style>
 </head>
 <body>
-    <div class="box" onclick="showImage()">
+    <button class="box" onclick="showImage()">
         Gift!
-    </div>
+    </b>
     <div class="image-container" id="imageContainer">
-        <img src="hfc.jpg" alt="Christmas Image">
+        <img src="hfc.jpg" alt="Christmas">
         <p>Merry Christmas Motherfucker!!</p>
     </div>
 <script>
