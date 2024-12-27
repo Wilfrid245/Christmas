@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Surprise</title>
+    <style>
+        body {
+            margin: 0;
+            block-size: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            color: red;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #ff6347;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-container {
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translate(-50%, 0) scale(0.5);
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease, top 1s ease;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .image-container img {
+            max-width: 80vw;
+            max-height: 50vh;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .image-container p {
+            font-size: 1.5rem;
+            color: red;
+        }
+
+        .image-container.show {
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            z-index: 3;
+        }
+
+        @media (max-width: 600px) {
+            .box {
+                width: 120px;
+                height: 120px;
+                font-size: 20px;
+            }
+
+            .image-container p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="showImage()">
+        Click Me!
+    </div>
+
+    <div class="image-container" id="imageContainer">
+        <img src="hfc.jpg" alt="Christmas Image">
+        <p>Merry Christmas Motherfucker!!</p>
+    </div>
+<script>
+    function showImage() {
+        const imageContainer = document.getElementById('imageContainer');
+            imageContainer.classList.add('show');
+        }
+</script>
+</body>
+</html>
